@@ -36,10 +36,18 @@ app.get('/todos', (_, res) => {
 app.get('/todos/overdue', (_, res) => {
 
   res.header("Content-Type","application/json");
-  res.sendFile(todoFilePath, { root: __dirname });
+  const overdueTodos=todos.map((todo) => {
+    if (todo.completed === true ) {
+      return todo 
+    }
+  });
+  console.log
+  res.sendFile(JSON.stringify(overdueTodos), { root: __dirname });
 
   res.status(200)
 });
+
+
 
 //Add GET request with path '/todos/overdue'
 
