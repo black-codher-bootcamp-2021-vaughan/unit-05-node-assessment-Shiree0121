@@ -19,18 +19,26 @@ app.use(bodyParser.json());
 app.use("/content", express.static(path.join(__dirname, "public")));
 
 app.get("/", (_, res) => {
-  /*
+  // res.header("Content-Type","text/html");
   res.sendFile("./public/index.html", { root: __dirname });
-  */
-  res.status(501).end();
+  
+  res.status(200)
 });
 
 app.get('/todos', (_, res) => {
-  /*
+  
   res.header("Content-Type","application/json");
   res.sendFile(todoFilePath, { root: __dirname });
-  */
-  res.status(501).end();
+  
+  res.status(200)
+});
+
+app.get('/todos/overdue', (_, res) => {
+
+  res.header("Content-Type","application/json");
+  res.sendFile(todoFilePath, { root: __dirname });
+
+  res.status(200)
 });
 
 //Add GET request with path '/todos/overdue'
